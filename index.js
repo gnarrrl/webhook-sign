@@ -1,5 +1,7 @@
 const crypto = require('crypto');
 
+let maxDeviation = 5;
+
 const sign = (payload, secret) => {
     const t = Math.floor(Date.now() / 1000);
     const payload_string = JSON.stringify(payload);
@@ -17,7 +19,7 @@ const verify = (signature, secret, payload) => {
     // validate timestamp
     const now = Math.floor(Date.now() / 1000);
     const deviation = (now - src_t);
-    if (deviation < 0 || deviation > 2) {
+    if (deviation < 0 || deviation > maxDeviation) {
         return false;
     }
 
@@ -34,5 +36,10 @@ const verify = (signature, secret, payload) => {
     return crypto.timingSafeEqual(Buffer.from(src_hash), Buffer.from(cmp_hash));
 };
 
+const setMaxDeviation = (value) => {
+    maxDeviation = Math.max(Math.min(30, value), 1);
+};
+
 exports.sign = sign;
 exports.verify = verify;
+exports.setMaxDeviation = setMaxDeviation;
