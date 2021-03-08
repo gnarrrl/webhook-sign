@@ -1,0 +1,24 @@
+{
+  "name": "webhook-sign",
+  "version": "1.0.0",
+  "description": "Simple HMAC-sha256 based webhook signature creation & validation.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gnarrrl/webhook-sign.git"
+  },
+  "keywords": [
+    "webhook",
+    "hmac",
+    "signature"
+  ],
+  "author": "Bernhard Zens",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/gnarrrl/webhook-sign/issues"
+  },
+  "homepage": "https://github.com/gnarrrl/webhook-sign#readme"
+}
